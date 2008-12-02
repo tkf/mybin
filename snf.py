@@ -51,7 +51,7 @@ def main(opts,args):
     cache, config = load(opts.path)
     for i in xrange(1,num+1):
         name, n = get_newname(cache,config,i)
-        os.system( opts.callback % name )
+        os.system( opts.callback % os.path.join(opts.path, name) )
 
     if not opts.test:
         cache["last"][0] = str(n)
