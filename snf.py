@@ -51,7 +51,7 @@ def main(opts,args):
     cache, config = load(opts.path)
     for i in xrange(1,num+1):
         name, n = get_newname(cache,config,i)
-        print name
+        os.system( opts.callback % name )
 
     if not opts.test:
         cache["last"][0] = str(n)
@@ -70,6 +70,8 @@ if __name__ == '__main__':
                       help="make new '_snf' for creating.")
     parser.add_option("-m", "--temp", dest="temp", default="snf_05%d",
                       help="template string for making new '_snf/config.csv'.", metavar="STR")
+    parser.add_option("-c", "--callback", dest="callback", default="echo %s",
+                      help="callback system command. '%s' will be changed to snf filename.", metavar="STR")
     (opts, args) = parser.parse_args()
 
     import sys

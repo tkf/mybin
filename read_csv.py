@@ -1,10 +1,13 @@
-#!/usr/bin/env python
+#!/usr/bin/ipython -i
 
 import sys
 import csv
 
 csv_name=sys.argv[1]
-csv_reader=csv.reader(open(csv_name))
+if csv_name[-4:] == '.csv':
+    csv_reader=csv.reader(open(csv_name))
+else:
+    csv_reader=csv.reader(open(csv_name), delimiter = ' ')
 
 a = []
 for row in csv_reader:
