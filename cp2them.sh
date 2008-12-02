@@ -6,5 +6,5 @@ echo $@
 
 for trg in "$@"
 do
-  cp $src $trg -v
+  cp $src $trg -vr
 done
