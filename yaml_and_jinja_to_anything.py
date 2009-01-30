@@ -21,7 +21,7 @@ from optparse import OptionParser
 parser = OptionParser()
 parser.add_option(
     "-y", "--yaml", dest="yfile",
-     metavar="FILE", help="yaml file.")
+    default=None, metavar="FILE", help="yaml file.")
 parser.add_option(
     "-j", "--jinja", dest="jfile",
     help="jinja file.", metavar="FILE")
@@ -57,7 +57,10 @@ env = jinja.Environment()
 tmp = env.from_string( jstr )
 
 #--- get yaml data
-yaml_data = yaml.load( file(opts.yfile) )
+if opts.yfile is not None:
+    yaml_data = yaml.load( file(opts.yfile) )
+else:
+    yaml_data = None
 
 #--- set writer
 if opts.ofile is None:
