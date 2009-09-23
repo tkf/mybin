@@ -41,7 +41,7 @@ shift `expr $OPTIND - 1`
 # take back up
 for trg in "$@"
 do
-    new="${trg}."`date +%F-%T`".bak"
+    new="${trg}."`date +%F-%H%M%S`".bak"
     echo "make back up : "$new
     $cmd $trg $new
     if [ -d $new  -a  "$cmd" = "mv" ]; then
