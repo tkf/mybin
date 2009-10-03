@@ -6,7 +6,8 @@ do
     if [ -d $dirpath ]; then
 	echo "Change dir to $dirpath"
 	cd $dirpath
-	if   [ -e .svn ]; then svn update
+	if [ -e .hgsvn ]; then hgpullsvn
+	elif [ -e .svn ]; then svn update
 	elif [ -e .git ]; then git pull
 	elif [ -e .hg  ]; then hg  pull
 	else
