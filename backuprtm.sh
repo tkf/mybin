@@ -60,3 +60,6 @@ then
 else
     download_rtm $rtm_id $rtm_pw $backup_path $interval
 fi
+
+
+## see also: http://sho.tdiary.net/20061013.html
